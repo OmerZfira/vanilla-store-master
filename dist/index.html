@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link rel="stylesheet" href="bundle.css">
+  <title>Shopping Cart</title>
+</head>
+
+<body>
+  <section class="container">
+    <section>
+      <p class="title">Shopping Cart Master</p>
+    </section>
+
+    <div class="loader"></div>
+
+    <button class="formToggleBtn button is-primary" onclick="toggleForm();clearForm();">+ Add Item</button>
+ 
+    <section class="formEditProductCont">
+      <h2>Add a product</h2>
+      <a class="button is-danger" onclick="toggleForm();">Close</a>
+
+      <div class="form-group">
+        <label for="product-title">Title</label>
+        <input type="text" id="product-title" placeholder="Enter product title" required>
+      </div>
+      <div class="form-group">
+        <label for="product-desc">Description</label>
+        <textarea id="product-desc" placeholder="Enter product decription..." required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="product-price">Price</label>
+        <input type="number" id="product-price" step="any" min="0" placeholder="Enter price in $" required>
+      </div>
+      <input type="hidden" id="product-id" />
+      <button class="button is-success" onclick="toggleForm();" data-edit-product>Save</button>
+      <button class="button is-danger" onclick="clearForm();">Clear</button>
+    </section>
+
+    <section class="flex products-cart">
+
+      <section class="products flex-2 flex justify-space"></section>
+
+      <section class="cart flex-1">
+        <p class="title is-3" style="text-align: left;">Your Cart</p>
+        <p class="margin" data-cart-status>Your shopping cart is empty</p>
+        <section class="cart-items"></section>
+        <p class="title is-3">Total of: <span data-cart-total class="title is-3">0</span>$</p>
+        <button class="button is-success is-medium" data-checkout-btn>Checkout</button>
+      </section>
+    </section>
+
+
+</section>
+<script src="bundle.js"></script>
+</body>
+
+</html>
